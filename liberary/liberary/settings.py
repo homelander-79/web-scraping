@@ -16,11 +16,18 @@ FEEDS={
    'book-data.csv':{'format':'csv'}
 }
 
+USER_AGENT='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36'
+
+SCRAPEOPS_API_KEY= 'afe0c12a-1b4e-4c08-941d-c8d641ee6d03'
+SCRAPEOPS_FAKE_USER_AGENT_ENDPOINT= 'https://headers.scrapeops.io/v1/browser-headers'
+SCRAPEOPS_FAKE_USER_AGENT_ENABLED= True
+SCRAPEOPS_NUM_RESULTS= 50
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "liberary (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = True #false
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -53,9 +60,10 @@ ROBOTSTXT_OBEY = True
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    "liberary.middlewares.LiberaryDownloaderMiddleware": 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+   #"liberary.middlewares.LiberaryDownloaderMiddleware": 543,
+   "liberary.middlewares.ScrapeOpsFakeUserAgentMiddleware": 400,
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html

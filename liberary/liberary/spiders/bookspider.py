@@ -1,5 +1,6 @@
 import scrapy
 from liberary.items import LiberaryItem
+import random
 
 
 
@@ -7,6 +8,8 @@ class BookspiderSpider(scrapy.Spider):
     name = 'bookspider'
     allowed_domains = ['books.toscrape.com']
     start_urls = ['http://books.toscrape.com/']
+
+    
 
     # custom_settings={
     #     'FEEDS':{'book-data.csv':{'format':'csv','overwrite':True}}
